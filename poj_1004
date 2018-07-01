@@ -1,0 +1,46 @@
+ #include<iostream>
+ #include<vector>
+
+using namespace std;
+
+int getMaxNum(int* arr, int row, int col, int x, int y, int cur){
+	vector<int> res(4,cur);
+
+	if(y > 0 && arr[x][y-1] < arr[x][y]){
+		res[0] = getMaxNum(arr, row, col, x, y-1, cur+1);
+	}
+	if(x > 0 && arr[x-1][y] < arr[x][y]){
+		res[1] = getMaxNum(arr, row, col, x-1, y, cur+1);
+	}
+	if(y < col-1 && arr[x][y+1] < arr[x][y]){
+		res[2] = getMaxNum(arr, row, col, x, y+1, cur+1);
+	}
+	if(x > col-1 && arr[x][y+1] < arr[x][y]){
+		res[3] = getMaxNum(arr, row, col, x+1, y, cur+1);
+	}
+	int result = std::max_element(res.begin(), res.end());
+	return result;
+}
+int main(void){
+	
+	const int rowNum;
+	const int colNum;
+	cin >> rowNum;
+	cin >> colNum;
+
+	if(rowNum == 0 || colNum == 0){
+	    cout << 0;
+	}
+	int row[rowNum][colNum];
+
+	for(int a = 0; a < rowNum; i++){
+		for(int b = 0; b < colNum ; b++){
+			cin >> row[a][b];
+		}
+	}
+	inf result = 0;
+	
+	result = getMaxNum(row, rowNum, colNum, )
+
+
+}

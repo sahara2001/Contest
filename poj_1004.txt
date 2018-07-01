@@ -1,0 +1,80 @@
+poj 1004
+Factorial
+
+Description:
+	give the number of zeros that the n! of given n will have at the end
+	
+Input: 
+	
+6		#number of input
+2		#input n
+34
+5245
+345343
+232
+234234
+
+Output:
+	for each n, output number of zeros at the end
+0
+23
+..
+...
+....
+....
+
+Solution:
+	1. Calculate all the factorials and TLE
+	
+	2.use the smallest digit (non-zero) to calculate and set up a table to get result;
+	
+		
+		a. 3*3 = 9, so if sum of last digit <= 6, no progress in degree
+		b. if one digit is 1, no progress
+		
+	3. dp momorizing small results <= 10
+	4. store 9*9 map to (zeros generated, smallest digit)
+	
+	
+
+#include<iostream>
+#include<matrix>
+#DEFINE MAX_INPUT_NUM = 10000
+
+int[] numZeros[MAX_INPUT_NUM];
+int[] smallestDigit[MAX_INPUT_NUM];
+ 
+using namespace std;
+
+
+int main(void){
+	cout.sync_with_stdio(false);
+	cin.tie(null_ptr);
+	
+	/*
+	initializing multiply matrix
+	*/
+	matrix<int> mulMat= {{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}
+						{0,0,0,0,0,0,0,0,0,0}};
+					
+	for(int i = 0; i < 10; i++){
+		for(int b = 0; b< 10; b++){
+			mulMat[i][b] = i*b;
+		}
+	}
+	
+	
+	
+	
+	
+	
+}
+		
